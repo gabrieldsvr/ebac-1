@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exec 1</title>
+
+    <style>
+        #voar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+<hr>
+<button onclick="helloWorldAlert()">
+    Clique 1
+</button>
+<hr>
+<div onmouseout="helloWorldMouseOn()" onmouseover="helloWorldMouseOver()" onclick="helloWorldMouseClick()" >
+    Passe o mouse
+</div>
+<div  id="hello3">
+</div>
+<hr>
+<div>
+    <input type="range" id="volume" name="volume"
+           min="0" max="10" onchange="helloWorldMouseChange()">
+    <label for="volume" id="labelVolume" ></label>
+</div>
+<hr>
+<div>
+    <input type="range" id="volume2" name="volume"
+           min="0" max="10" onchange="helloWorldMouseChange2()">
+    <label for="volume" id="labelVolume2" ></label>
+</div>
+<hr>
+<div id="helloworld7">
+
+</div>
+<button onclick="helloWorldDownSize()">
+    -
+</button>
+<button onclick="helloWorldUpSize()">
+    +
+</button>
+<hr>
+<div id="voar" style="height: 300px"></div>
+</body>
+
+<script>
+
+    var countSize = 12;
+
+
+
+    const wordElement = document.getElementById("voar");
+    wordElement.innerHTML = "Hello World 9";
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const wordWidth = wordElement.clientWidth;
+    const wordHeight = wordElement.clientHeight;
+    let wordX = screenWidth / 2;
+    let wordY = screenHeight / 2;
+    let velocityX = 2;
+    let velocityY = 2;
+
+    function moveWord() {
+        wordX += velocityX;
+        wordY += velocityY;
+
+        if (wordX + wordWidth >= screenWidth || wordX <= 0) {
+            velocityX = -velocityX;
+        }
+
+        if (wordY + wordHeight >= screenHeight || wordY <= 0) {
+            velocityY = -velocityY;
+        }
+
+        wordElement.style.left = wordX + "px";
+        wordElement.style.top = wordY + "px";
+
+        requestAnimationFrame(moveWord);
+    }
+
+    moveWord();
+
+    document.write("Hello, World 10!");
+
+    function helloWorldUpSize() {
+        let div = document.getElementById('helloworld7');
+        div.innerHTML = "Hello World 8" ;
+        countSize++;
+        div.style.fontSize = countSize + "px";
+    }
+    function helloWorldDownSize() {
+        let div = document.getElementById('helloworld7');
+        div.innerHTML = "Hello World 8" ;
+        countSize--;
+        div.style.fontSize = countSize + "px";
+    }
+    function helloWorldAlert() {
+        alert("Hello World 2");
+    }
+
+    function helloWorldMouseOver() {
+        document.getElementById('hello3').innerHTML = "Hello World 4 - Clique";
+    }
+    function helloWorldMouseOn() {
+        document.getElementById('hello3').innerHTML = "Hello World 5 - Passe o mouse";
+    }
+
+    function helloWorldMouseClick() {
+        document.getElementById('hello3').innerHTML = " Hello World - 3 - Passe o mouse";
+    }
+
+    function helloWorldMouseChange() {
+        let value = document.getElementById('volume').value;
+        let label = document.getElementById('labelVolume');
+        label.innerHTML = "Hello World 6 - opacidade" + value ;
+
+        label.style.opacity = value/10;
+
+    }
+    function helloWorldMouseChange2() {
+        let value = document.getElementById('volume2').value;
+        let label = document.getElementById('labelVolume2');
+        label.innerHTML = "Hello World 7" ;
+
+
+        if (value === "0"){
+            label.style.color = "blue";
+        }else  if (value === "1"){
+            label.style.color = "red";
+        }else  if (value === "2"){
+            label.style.color = "purple";
+        }else  if (value === "3"){
+            label.style.color = "acqua";
+        }else  if (value === "4"){
+            label.style.color = "black";
+        }else  if (value === "5"){
+            label.style.color = "green";
+        }else  if (value === "6"){
+            label.style.color = "yellow";
+        }else  if (value === "7"){
+            label.style.color = "brown";
+        }else  if (value === "8"){
+            label.style.color = "pink";
+        }else  if (value === "9"){
+            label.style.color = "violet";
+        } else  if (value === "10"){
+            label.style.color = "orange";
+        }
+
+
+    }
+
+
+
+    window.prompt("esta preparado?");
+    alert("Hello World 1")
+</script>
+</html>
